@@ -1,13 +1,15 @@
+import { useRouter } from "expo-router";
 import React from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
 export default function ProfileHeader() {
+  const router = useRouter();
   return (
     <View style={styles.container}>
       {/* Header container with left action, centered titles, and right action */}
       {/* Action icons wrapped in Pressable for future navigation or actions */}
       {/* Group name and username displayed in the center */}
-      <Pressable>
+      <Pressable onPress={() => router.push("/(tab)/profile/create-post")}>
         <Image
           style={styles.pressable}
           source={require("@/assets/images/Instagram/plus.png")}

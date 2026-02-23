@@ -95,7 +95,6 @@ export default function Profile() {
                 <Image source={{ uri: item.uri }} style={styles.gridImage} />
               )}
               columnWrapperStyle={styles.gridRow}
-              contentContainerStyle={styles.gridContainer}
               showsVerticalScrollIndicator={false}
             />
           </View>
