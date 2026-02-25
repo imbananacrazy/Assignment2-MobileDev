@@ -3,8 +3,16 @@
 // We do not own any of the icons
 
 import ProfileHeader from "@/components/profile-header";
+import { useRouter } from "expo-router";
 import React from "react";
-import { FlatList, Image, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 // Mock image data used to stimulate a post grid
@@ -27,25 +35,22 @@ const GRID_DATA = [
   { id: "15", uri: "https://picsum.photos/400/400?15" },
 ];
 
-// Main group profile screen combining header, profile info, post grid, and footer
-
+// User's profile screen. Edit/share profile, view posts and stats
 export default function Profile() {
+  const router = useRouter();
   return (
     <SafeAreaProvider>
       {/* Safe area handling for notches UI */}
       <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
         <View style={{ flex: 1 }}>
-          {/* HEADER (teammate) */}
+          {/* Header Component */}
           <ProfileHeader />
-
           <View style={styles.content}>
             {/* Profile row */}
             <View style={styles.profileRow}>
-              {/* Group avatar with outer ring and inner initials */}
-              <View style={styles.avatarOuter}>
-                <View style={styles.avatarInner}>
-                  <Text style={styles.avatarText}>OO{"\n"}TD</Text>
-                </View>
+              {/* Profile photo and border for story*/}
+              <View style={styles.profilePhotoOuter}>
+                <View style={styles.profilePhotoInner}></View>
               </View>
               {/* Stats and full name */}
               <View
@@ -54,19 +59,20 @@ export default function Profile() {
                   flex: 1,
                   marginLeft: 25,
                   gap: 10,
-                }}>
-                <Text style={{ fontSize: 14 }}>Out of the Dust</Text>
+                }}
+              >
+                <Text style={{ fontSize: 14 }}>John Doe</Text>
                 <View style={styles.statsRow}>
                   <View style={styles.statItem}>
-                    <Text style={styles.statNumber}>53</Text>
+                    <Text style={styles.statNumber}>15</Text>
                     <Text style={styles.statLabel}>posts</Text>
                   </View>
                   <View style={styles.statItem}>
-                    <Text style={styles.statNumber}>137</Text>
+                    <Text style={styles.statNumber}>100</Text>
                     <Text style={styles.statLabel}>followers</Text>
                   </View>
                   <View style={styles.statItem}>
-                    <Text style={styles.statNumber}>983</Text>
+                    <Text style={styles.statNumber}>100</Text>
                     <Text style={styles.statLabel}>following</Text>
                   </View>
                 </View>
@@ -81,9 +87,12 @@ export default function Profile() {
               <View style={styles.profileManagementBtn}>
                 <Text style={styles.profileManagementText}>Edit Profile</Text>
               </View>
-              <View style={styles.profileManagementBtn}>
+              <Pressable
+                style={styles.profileManagementBtn}
+                onPress={() => router.push("/(tab)/profile/share-profile")}
+              >
                 <Text style={styles.profileManagementText}>Share Profile</Text>
-              </View>
+              </Pressable>
             </View>
 
             {/* Posts grid  rendered using FlatList for performance*/}
@@ -117,7 +126,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 
-  avatarOuter: {
+  profilePhotoOuter: {
     width: 82,
     height: 82,
     borderRadius: 41,
@@ -127,11 +136,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
-  avatarInner: {
+  profilePhotoInner: {
     width: 72,
     height: 72,
     borderRadius: 36,
-    backgroundColor: "#2f80ed",
+    backgroundColor: "black",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -165,7 +174,6 @@ const styles = StyleSheet.create({
 
   groupName: {
     fontSize: 14,
-    fontWeight: "800",
     marginBottom: 4,
   },
 

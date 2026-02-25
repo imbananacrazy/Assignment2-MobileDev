@@ -6,9 +6,6 @@ export default function ProfileHeader() {
   const router = useRouter();
   return (
     <View style={styles.container}>
-      {/* Header container with left action, centered titles, and right action */}
-      {/* Action icons wrapped in Pressable for future navigation or actions */}
-      {/* Group name and username displayed in the center */}
       <Pressable onPress={() => router.push("/(tab)/profile/create-post")}>
         <Image
           style={styles.pressable}
@@ -16,7 +13,7 @@ export default function ProfileHeader() {
         />
       </Pressable>
       <View style={styles.titles}>
-        <Text style={styles.title}>Username</Text>
+        <Text style={styles.title}>john.doe</Text>
       </View>
       <Pressable>
         <Image
@@ -27,7 +24,7 @@ export default function ProfileHeader() {
     </View>
   );
 }
-// Styles for header layout typography, and icons
+
 const styles = StyleSheet.create({
   container: {
     height: 60,
