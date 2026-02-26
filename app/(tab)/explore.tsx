@@ -1,7 +1,7 @@
-export default function Home() {
+export default function Explore() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Home Screen</Text>
+      <Text>Explore Screen</Text>
     </View>
   );
 }

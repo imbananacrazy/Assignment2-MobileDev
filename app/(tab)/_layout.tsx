@@ -3,11 +3,10 @@ import { Tabs } from "expo-router";
 
 export default function TabLayout() {
   return (
-    <Tabs screenOptions={{ headerShown: false }}>
+    <Tabs screenOptions={{ headerShown: false, tabBarShowLabel: false }}>
       <Tabs.Screen
         name="home"
         options={{
-          title: "Home",
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons
               name={focused ? "home" : "home-outline"}
@@ -18,12 +17,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="reels"
+        name="explore"
         options={{
-          title: "Reels",
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons
-              name={focused ? "play-circle" : "play-circle-outline"}
+              name={focused ? "search" : "search-outline"}
               size={size}
               color={color}
             />
@@ -33,7 +31,6 @@ export default function TabLayout() {
       <Tabs.Screen
         name="messages"
         options={{
-          title: "Messages",
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons
               name={focused ? "chatbubbles" : "chatbubbles-outline"}
@@ -46,7 +43,6 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: "Profile",
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons
               name={focused ? "person" : "person-outline"}
