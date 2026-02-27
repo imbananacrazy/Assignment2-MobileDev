@@ -1,4 +1,4 @@
-export const COLORS = {
+export const DarkTheme = {
   background: "#000000",
   surface: "#121212",
   border: "#1f1f1f",
@@ -6,3 +6,13 @@ export const COLORS = {
   textSecondary: "#a8a8a8",
   accent: "#0095f6",
 };
+
+export const LightTheme = {
+  background: "#ffffff",
+  surface: "#f2f2f2",
+  border: "#dddddd",
+  textPrimary: "#000000",
+  textSecondary: "#a8a8a8",
+  accent: "#0095f6",
+};
+
