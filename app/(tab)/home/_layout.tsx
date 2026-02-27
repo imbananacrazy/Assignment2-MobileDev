@@ -1,4 +1,5 @@
 import { Stack } from "expo-router";
+import {ThemeProvider} from "@/ThemeContext";
 
 export default function CreatePostLayout() {
   return (
