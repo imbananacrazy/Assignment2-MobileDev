@@ -23,7 +23,7 @@ const GAP = 2;
 const NUM_COLUMNS = 3;
 const TILE_SIZE = (SCREEN_WIDTH - GAP * (NUM_COLUMNS - 1)) / NUM_COLUMNS;
 
-// Random photos (NOT personal). Using picsum for random safe images.
+// Random photos 
 const EXPLORE_DATA: ExploreItem[] = [
   { id: "1", image: "https://picsum.photos/id/1011/600/600", views: "188K" },
   { id: "2", image: "https://picsum.photos/id/1015/600/600", views: "112K" },
@@ -47,7 +47,7 @@ export default function ExploreScreen() {
 
   const filtered = useMemo(() => {
     if (!query.trim()) return EXPLORE_DATA;
-    // simple fake filtering: just keep some items when typing
+    // simple fake filtering
     return EXPLORE_DATA.filter((_, idx) => idx % 2 === 0);
   }, [query]);
 
@@ -77,7 +77,7 @@ export default function ExploreScreen() {
             <TouchableOpacity activeOpacity={0.85} style={styles.tile}>
               <Image source={{ uri: item.image }} style={styles.image} />
 
-              {/* Views badge (optional) */}
+              {/* Views badge */}
               <View style={styles.viewsBadge}>
                 <Ionicons name="eye-outline" size={12} color="#fff" />
                 <Text style={styles.viewsText}>{item.views}</Text>
