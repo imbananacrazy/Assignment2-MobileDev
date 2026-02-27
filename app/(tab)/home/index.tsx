@@ -3,27 +3,32 @@ import { useRouter } from "expo-router";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
+import { useTheme } from "@/ThemeContext";
+import { DarkTheme, LightTheme } from "@/theme";
+ 
 export default function Home() {
   const router = useRouter();
+
+  const { theme } = useTheme();
+  const colors = theme === "dark" ? DarkTheme : LightTheme;
+  
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+      <SafeAreaView style={[ styles,safeArea,{backgroundColor: colors.background } ]}>
         <View style={{ flex: 1 }}>
           <HomeHeader />
-          <View style={styles.container}>
-            <View style={styles.storiesRow}>
-              <View style={styles.storyItem}>
-                <View />
-              </View>
-              <View style={styles.storyItem}>
-                <View />
-              </View>
-              <View style={styles.storyItem}>
-                <View />
-              </View>
-              <View style={styles.storyItem}>
-                <View />
-              </View>
+          <View style={styles.storiesRow}>
+            {[1, 2, 3, 4].map((item) => (
+              <View
+                key={item}
+                style={[
+                  styles.storyItem,
+                  {
+                    backgroundColor: colors.surface,
+                    borderColor: colors.accent,
+                  },
+                ]}
+              />
             </View>
           </View>
         </View>
@@ -33,24 +38,24 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     flexDirection: "column",
-    backgroundColor: "white",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
   },
   storiesRow: {
     flexDirection: "row",
-    marginBottom: "auto",
-    marginRight: "auto",
-    paddingTop: 5,
+    paddingTop: 15,
   },
   storyItem: {
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: "lightblue",
-    marginHorizontal: 5,
+    marginHorizontal: 8,
+    borderWidth: 2,
   },
 });
