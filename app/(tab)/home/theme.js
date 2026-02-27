@@ -12,7 +12,7 @@ export const LightTheme = {
   surface: "#f2f2f2",
   border: "#dddddd",
   textPrimary: "#000000",
-  textSecondary: "#a8a8a8",
-  accent: "#0095f6",
+  textSecondary: "#555555",
+  accent: "#0066cc",
 };
 
