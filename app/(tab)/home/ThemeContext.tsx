@@ -9,14 +9,14 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ useTheme}: any) => {
-  const [theme, settheme] = useState<ThemeType>("dark");
+  const [theme, setTheme] = useState<ThemeType>("dark");
 
   const toggleTheme = () => {
-    setTheme ((prev) => (prev === "dark" ? "light" :"dark"));
+    setTheme (prev => (prev === "dark" ? "light" :"dark"));
   };
   return (
-    <ThemeContext.Provider value ={{ theme, toggleTheme }}>
-      {useTheme}
+    <ThemeContext.Provider value ={{theme, toggleTheme}}>
+      {children}
     </ThemeContext.Provider>
   );
 };
