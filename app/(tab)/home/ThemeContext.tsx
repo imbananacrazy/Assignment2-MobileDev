@@ -8,7 +8,7 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider = ({ children}: any) => {
+export const ThemeProvider = ({ useTheme}: any) => {
   const [theme, settheme] = useState<ThemeType>("dark");
 
   const toggleTheme = () => {
@@ -16,7 +16,7 @@ export const ThemeProvider = ({ children}: any) => {
   };
   return (
     <ThemeContext.Provider value ={{ theme, toggleTheme }}>
-      {children}
+      {useTheme}
     </ThemeContext.Provider>
   );
 };
