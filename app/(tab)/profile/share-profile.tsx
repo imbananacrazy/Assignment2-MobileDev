@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React from "react";
-import { Pressable, StyleSheet, View } from "react-native";
+import { Image, Pressable, StyleSheet, View } from "react-native";
 
 const ShareProfile = () => {
   const router = useRouter();
@@ -10,8 +10,23 @@ const ShareProfile = () => {
       <Pressable style={styles.close} onPress={() => router.back()}>
         <Ionicons name="close-outline" size={40} color="black" />
       </Pressable>
-      <View style={styles.qrCode}></View>
-      <View style={styles.buttonContainer}></View>
+      <View style={styles.qrCode}>
+        <Image
+          source={require("@/assets/images/Instagram/qrcode.png")}
+          style={styles.qrImage}
+        />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Pressable style={styles.button}>
+          <Ionicons name="share-outline" size={25} color="black" />
+        </Pressable>
+        <Pressable style={styles.button}>
+          <Ionicons name="copy-outline" size={25} color="black" />
+        </Pressable>
+        <Pressable style={styles.button}>
+          <Ionicons name="download-outline" size={25} color="black" />
+        </Pressable>
+      </View>
     </View>
   );
 };
@@ -43,7 +58,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: "row",
-    gap: 10,
+    gap: 50,
     width: 300,
     height: 75,
     backgroundColor: "white",
@@ -56,6 +71,17 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     elevation: 5,
     borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  button: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    borderColor: "lightgray",
+    borderWidth: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
   close: {
     width: 25,
@@ -66,8 +92,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  closeText: {
-    fontSize: 20,
-    color: "white",
+  qrImage: {
+    width: "100%",
+    height: "100%",
   },
 });

@@ -9,7 +9,7 @@ export default function HomeHeader() {
   const router = useRouter();
   return (
     <View style={styles.container}>
-      <Pressable onPress={() => router.push("/(tab)/profile/create-post")}>
+      <Pressable onPress={() => router.push("/(tab)/home/create-post")}>
         <Image
           style={styles.pressable}
           source={require("@/assets/images/Instagram/plus.png")}
