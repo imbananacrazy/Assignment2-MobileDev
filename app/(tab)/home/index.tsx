@@ -14,7 +14,7 @@ export default function Home() {
   
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={[ styles.safeArea,{backgroundColor: colors.background } ]}>
+      <SafeAreaView style={[ styles.safeArea ,{backgroundColor: colors.background } ]}>
         <View style={{ flex: 1 }}>
           <HomeHeader />
           <View style={styles.storiesRow}>
