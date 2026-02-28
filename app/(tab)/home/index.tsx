@@ -3,8 +3,8 @@ import { useRouter } from "expo-router";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
-import { useTheme } from "@/ThemeContext";
-import { DarkTheme, LightTheme } from "@/theme";
+import { useTheme } from "./ThemeContext";
+import { DarkTheme, LightTheme } from "./theme";
  
 export default function Home() {
   const router = useRouter();
